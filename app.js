@@ -113,18 +113,16 @@ bot.dialog('greeting', [
 });
 
 
-/*bot.dialog('None', [
+bot.dialog('None', [
   function(session,args,next){
   session.send('Please enter valid Input');
-  /*if (session.message.text.includes("hi"))
-  {
-  session.send('Hey Brillio  \n\n\nI am your smart auto assistant powered by Hella. Help me with your car details so that I can do a lot better for you. Which Lexus auto do you own? ');
   }
-  //session.send('Welcome to the Weather finder! We are //analyzing your message: \'%s\'', session.message.text);*/
- /* }
   ]).triggerAction({
-    matches: 'None'
-});*/
+    matches: 'None',
+	onInterrupted: function (session) {
+       session.send('Please provide a valid car number');
+	   }
+});
 
 
 bot.dialog('car', [
