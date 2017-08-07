@@ -118,10 +118,10 @@ bot.dialog('None', [
   session.send('Please enter valid Input');
   }
   ]).triggerAction({
-    matches: 'None',
-	onInterrupted: function (session) {
-       session.send('Please provide a valid car number');
-	   }
+    matches: 'None'
+	//onInterrupted: function (session) {
+    //   session.send('Please provide a valid car number');
+	//   }
 });
 
 
