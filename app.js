@@ -47,7 +47,7 @@ server.post('/api/messages', connector.listen());
 });*/
 
 var bot = new builder.UniversalBot(connector, function (session) {
-		session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+		session.send('Sorry, I did not understand \'%s\'. Please check your input.', session.message.text);
 });
 
 //var bot = new builder.UniversalBot(connector);
