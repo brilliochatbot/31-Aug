@@ -85,7 +85,7 @@ var intents = new builder.IntentDialog({recognizers:[recognizer]})
     matches: 'greeting'
 });
 
-bot.dialog('numberInt', [
+bot.dialog('None', [
   function(session,args,next){
   session.send('Please enter valid Input');
   /*if (session.message.text.includes("hi"))
@@ -95,7 +95,7 @@ bot.dialog('numberInt', [
   //session.send('Welcome to the Weather finder! We are //analyzing your message: \'%s\'', session.message.text);*/
   }
   ]).triggerAction({
-    matches: 'numberInt'
+    matches: 'None'
 });
 
 
