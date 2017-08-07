@@ -72,7 +72,7 @@ var intents = new builder.IntentDialog({recognizers:[recognizer]})
     matches: 'weather'
 });*/
 
-  bot.dialog('greeting', [
+  /*bot.dialog('greeting', [
   function(session,args,next){
   session.send('Hey Brillio  \n\n\nI am your smart auto assistant powered by Hella. Help me with your car details so that I can do a lot better for you. Which Lexus auto do you own?');
   /*if (session.message.text.includes("hi"))
@@ -80,10 +80,38 @@ var intents = new builder.IntentDialog({recognizers:[recognizer]})
   session.send('Hey Brillio  \n\n\nI am your smart auto assistant powered by Hella. Help me with your car details so that I can do a lot better for you. Which Lexus auto do you own? ');
   }
   //session.send('Welcome to the Weather finder! We are //analyzing your message: \'%s\'', session.message.text);*/
+ /* }
+  ]).triggerAction({
+    matches: 'greeting'
+});*/
+
+bot.dialog('greeting', [
+  function(session,args,next){
+  
+  var greetingListEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'greetingList');
+  
+  if(greetingListEntity)
+  
+  //if (modelEntity === 'Lexus' ||  modelEntity === 'lexus')
+	{
+	//session.send('model %s', args[0])
+	builder.Prompts.text(session, 'Hey Brillio  \n\n\nI am your smart auto assistant powered by Hella. Help me with your car details so that I can do a lot better for you. Which Lexus auto do you own?');
+	}
+	else
+	{
+	  //user
+	  //session.send('model %s', args[0])
+	  //session.send('model %s', modelEntity)
+	  //builder.Prompts.text(session,modelEntity);
+	builder.Prompts.text(session, 'please enter valid input');
+	}
+    
+  //session.send('Let me know your car number');
   }
   ]).triggerAction({
     matches: 'greeting'
 });
+
 
 /*bot.dialog('None', [
   function(session,args,next){
