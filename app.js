@@ -85,6 +85,19 @@ var intents = new builder.IntentDialog({recognizers:[recognizer]})
     matches: 'greeting'
 });
 
+bot.dialog('numberInt', [
+  function(session,args,next){
+  session.send('Please enter valid Input');
+  /*if (session.message.text.includes("hi"))
+  {
+  session.send('Hey Brillio  \n\n\nI am your smart auto assistant powered by Hella. Help me with your car details so that I can do a lot better for you. Which Lexus auto do you own? ');
+  }
+  //session.send('Welcome to the Weather finder! We are //analyzing your message: \'%s\'', session.message.text);*/
+  }
+  ]).triggerAction({
+    matches: 'numberInt'
+});
+
 
 bot.dialog('car', [
   function(session,args,next){
