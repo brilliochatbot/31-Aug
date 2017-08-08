@@ -162,7 +162,7 @@ bot.dialog('car', [
   //if (modelEntity === 'Lexus' ||  modelEntity === 'lexus')
 	{
 	//session.send('model %s', args[0])
-	builder.Prompts.text(session, "That's great! \n\nLet me know your car number");
+	builder.Prompts.text(session, "Let me know your car number");
 	}
 	else
 	{
@@ -223,7 +223,7 @@ bot.dialog('carregistered', [
   //if (modelEntity === 'Lexus' ||  modelEntity === 'lexus')
 	{
 		//session.send('model %s', results.response)
-		builder.Prompts.text(session, 'When are you planning to go for this service?');
+		builder.Prompts.text(session, "That's great! \n\nWhen are you planning to go for this service?");
 	}
 	else
 	{
