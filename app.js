@@ -105,7 +105,7 @@ bot.dialog('greeting', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-    
+   var count=1; 
   //session.send('Let me know your car number');
   }
   ]).triggerAction({
@@ -754,8 +754,8 @@ bot.dialog('GetForecast', [
     });
   }
 ]).triggerAction({
-    matches: 'GetForecast',
-    onInterrupted: function (session) {
-        session.send('Please provide a GetForecast');
+    matches: 'GetForecast'//,
+    //onInterrupted: function (session) {
+    //session.send('Please provide a GetForecast');
     }
 });
