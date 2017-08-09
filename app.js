@@ -118,11 +118,53 @@ bot.dialog('None', [
   function(session,args,next){
   if(count1===1)
 	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
 	session.send('Let me know your car number')
 	}
+	else if(count1===2)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('How can I help you today?')
+	}
+	else if(count1===3)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service')
+	}
+	else if(count1===4)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('When are you planning to go for this service?')
+	}
+	else if(count1===5)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('Let me know which time do you prefer for the service?\n\n9 am / 11 am / 3 pm/ 5 pm')
+	}
+	else if(count1===6)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('Generally people go for oil change, battery check-up, general servicing during a routine service. What are your preferences?')
+	}
+	else if(count1===7)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('how do you prefer to move around?\n\nLoaner Car/ Shuttle service')
+	}
+	else if(count1===8)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('Your loaner car would be available by 9:05 am and needs to be returned while taking your car back./ Driver named John will pick you by 9:15 am. You can reach him at (541) 754-3010)')
+	}
+	else if(count1===11)
+	{
+	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	session.send('Let me know what you wish to go with\n\nCar Detailing/ Buy Accessories')
+	}
+	
 	else{
     session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
-	//session.send('Please enter valid Input');
+	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	}
   }
   ]).triggerAction({
@@ -152,7 +194,7 @@ bot.dialog('service', [
 	  //builder.Prompts.text(session,modelEntity);
 	//builder.Prompts.text(session, 'please enter Lexus ES Hybrid/ Lexus LX/ Lexus RC F');
 	//}
-  
+  count1=4;
   
   //session.send('Let me know your car number');
   }
@@ -210,7 +252,7 @@ bot.dialog('carregistered', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid car number');
 	}
-  
+	count1=3;
   
   //session.send('Let me know your car number');
   }
@@ -243,6 +285,7 @@ bot.dialog('carregistered', [
 	}
   
    //session.send('Let me know your car number');
+   count1=5;
   }
   
   /*,  to get user ans
@@ -278,6 +321,7 @@ bot.dialog('carregistered', [
 	}*/
   
    //session.send('Let me know your car number');
+   count1=6;
   }
   ]).triggerAction({
     matches: 'date'
@@ -290,6 +334,7 @@ bot.dialog('carregistered', [
   function(session,args,next){
   //session.send('model %s', results.response)
 		builder.Prompts.text(session, "Generally people go for oil change, battery check-up, general servicing during a routine service. What are your preferences?");
+		count1=7;
   }
   ]).triggerAction({
     matches: 'time'
@@ -318,7 +363,7 @@ bot.dialog('carregistered', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-  
+  count1=8;
    //session.send('Let me know your car number');
   }
   /*,  to get user ans
@@ -351,7 +396,7 @@ bot.dialog('carregistered', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-  
+  count1=9;
    //session.send('Let me know your car number');
   }
   /*,  to get user ans
@@ -384,7 +429,7 @@ bot.dialog('carregistered', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-  
+  count1=10;
    //session.send('Let me know your car number');
   }
   /*,  to get user ans
@@ -418,7 +463,7 @@ bot.dialog('carregistered', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-  
+  count1=11;
    //session.send('Let me know your car number');
   }
   
@@ -448,7 +493,7 @@ bot.dialog('carregistered', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-  
+  count1=12;
    //session.send('Let me know your car number');
   }
   
