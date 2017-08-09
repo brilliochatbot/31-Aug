@@ -115,7 +115,8 @@ bot.dialog('greeting', [
 
 bot.dialog('None', [
   function(session,args,next){
-  session.send('Please enter valid Input');
+  session.send('I am not trained to answer this please help me by giving questions related to Lexus car Service / Weather : \'%s\'', session.message.text);
+  //session.send('Please enter valid Input');
   }
   ]).triggerAction({
     matches: 'None'
