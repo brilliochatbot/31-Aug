@@ -675,7 +675,7 @@ function forecastForADate(forecastDate, forecasts) {
 }
 
 /** Prompts to get the current weather conditions */
-/*bot.dialog('Weather.GetForecast', [
+bot.dialog('Weather.GetForecast', [
   function(session, args, next) {
 	session.send('Welcome to the Weather finder! We are analyzing your message: \'%s\'', session.message.text);
     const location = builder.EntityRecognizer.findEntity(args.entities, 'builtin.geography.city');
@@ -696,20 +696,20 @@ function forecastForADate(forecastDate, forecasts) {
       session.send(res.text + ' with a temperature of ' + res.temp + ' degress');
     });
   } /////////////////////////////
-]).triggerAction({
+/*]).triggerAction({
     matches: 'Weather.GetForecast'
  });
-
-/*]).triggerAction({
+*/
+]).triggerAction({
     matches: 'Weather.GetForecast',
     onInterrupted: function (session) {
         session.send('Please provide a weather destination');
     }
-});*/
+});
 
 
 /** Fetch the weather forecast for a city */
-/*
+
 bot.dialog('GetForecast', [
   function(session, args, next) {
     const location = builder.EntityRecognizer.findEntity(args.entities, 'builtin.geography.city');
@@ -757,4 +757,4 @@ bot.dialog('GetForecast', [
     onInterrupted: function (session) {
         session.send('Please provide a GetForecast');
     }
-});*/
+});
