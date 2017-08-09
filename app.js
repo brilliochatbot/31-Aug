@@ -115,8 +115,14 @@ bot.dialog('greeting', [
 
 bot.dialog('None', [
   function(session,args,next){
-  session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
-  //session.send('Please enter valid Input');
+  if(count===1)
+	{
+	session.send('Let me know your car number')
+	}
+	else{
+    session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+	//session.send('Please enter valid Input');
+	}
   }
   ]).triggerAction({
     matches: 'None'
@@ -174,7 +180,7 @@ bot.dialog('car', [
 	builder.Prompts.text(session, 'please enter Lexus ES Hybrid/ Lexus LX/ Lexus RC F');
 	}
   
-  
+   var count=2; 
   //session.send('Let me know your car number');
   }
   ]).triggerAction({
