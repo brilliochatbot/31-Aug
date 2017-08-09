@@ -106,7 +106,7 @@ bot.dialog('greeting', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-   count1='1'; 
+   count1=1; 
   //session.send('Let me know your car number');
   }
   ]).triggerAction({
