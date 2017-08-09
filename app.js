@@ -757,5 +757,5 @@ bot.dialog('GetForecast', [
     matches: 'GetForecast'//,
     //onInterrupted: function (session) {
     //session.send('Please provide a GetForecast');
-    }
+    //}
 });
