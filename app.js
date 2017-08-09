@@ -116,7 +116,7 @@ bot.dialog('greeting', [
 
 bot.dialog('None', [
   function(session,args,next){
-  if(count===1)
+  if(count1===1)
 	{
 	session.send('Let me know your car number')
 	}
