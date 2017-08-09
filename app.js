@@ -2,6 +2,7 @@ var restify = require('restify');
 var YQL     = require('yql');
 var builder = require('botbuilder');
 
+var count1;
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -105,7 +106,7 @@ bot.dialog('greeting', [
 	  //builder.Prompts.text(session,modelEntity);
 	builder.Prompts.text(session, 'please enter valid input');
 	}
-   var count=1; 
+   count1='1'; 
   //session.send('Let me know your car number');
   }
   ]).triggerAction({
@@ -180,7 +181,7 @@ bot.dialog('car', [
 	builder.Prompts.text(session, 'please enter Lexus ES Hybrid/ Lexus LX/ Lexus RC F');
 	}
   
-   var count=2; 
+   count1=2; 
   //session.send('Let me know your car number');
   }
   ]).triggerAction({
