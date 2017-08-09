@@ -652,7 +652,7 @@ function reviewAsAttachment(review) {
  * Fetch weather details from Yahoo Weather API
  * @param loc Location to get the weather for
  */
- /*
+ 
 function weatherForecast(loc, cb) {
   const query = new YQL('select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + loc + '")');
 
@@ -666,7 +666,7 @@ function weatherForecast(loc, cb) {
 /**
  * Find forecast for a specified date (if available)
  */
- /*
+
 function forecastForADate(forecastDate, forecasts) {
   return forecasts.find((item) => {
     var date = moment(item.date, 'DD MMM YYYY');
