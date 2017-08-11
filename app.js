@@ -2,6 +2,9 @@ var restify = require('restify');
 var YQL     = require('yql');
 var builder = require('botbuilder');
 
+var apiairecognizer = require('api-ai-recognizer'); 
+var request = require('request');
+
 var count1;
 // Setup Restify Server
 var server = restify.createServer();
@@ -58,14 +61,24 @@ var bot = new builder.UniversalBot(connector, function (session) {
 var LUIS_MODEL_URL='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/bd8ad2bc-a774-4fd9-8c10-c462a8190b97?subscription-key=1d9451278d7c49e3a9e5e08c13132c80&verbose=true&timezoneOffset=0&q='
 
 var recognizer = new builder.LuisRecognizer(LUIS_MODEL_URL);
+
+var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389'); 
+
+
 bot.recognizer(recognizer);
+bot.recognizer(recognizer_api);//api.ai
+
+
 var intents = new builder.IntentDialog({recognizers:[recognizer]})
-.matches('None',(session, args)=>{
+
+var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
+
+/*.matches('None',(session, args)=>{
  session.send('Hi this is the none intent you said: \'%s\'.',session.message.text)
 })
 .matches('weather',(session, args)=>{
  session.send('you asked for weather')
-})
+})*/
 
 /*bot.dialog('weather', [
   function(session,args,next){
@@ -87,6 +100,37 @@ var intents = new builder.IntentDialog({recognizers:[recognizer]})
   ]).triggerAction({
     matches: 'greeting'
 });*/
+
+bot.dialog('/',intents); 
+
+intents.matches('whatIsWeather',[ function(session,args)
+{ var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
+if (city11)
+{ 
+var city_name = city11.entity; 
+var url = 'http://api.apixu.com/v1/current.json?key=a3245afef9f940f3b68111100171108&q=' + city_name; 
+request(url,function(error,response,body)
+{ 
+body = JSON.parse(body);
+
+temp = body.current.temp_c; 
+session.send("It's " + temp + " degrees celsius in " + city_name); 
+}); 
+}else
+{ builder.Prompts.text(session, 'Which city do you want the weather for?');
+ } }, function(session,results)
+ { 
+ var city_name = results.response; 
+ var url = 'http://api.apixu.com/v1/current.json?key=a3245afef9f940f3b68111100171108&q=' + city_name; 
+ request(url,function(error,response,body)
+ { 
+ body = JSON.parse(body);
+ temp = body.current.temp_c; 
+ session.send("It's " + temp + " degrees celsius in " + city_name); }); 
+ } ]);
+
+
+
 
 bot.dialog('greeting', [
   function(session,args,next){
@@ -714,7 +758,7 @@ function reviewAsAttachment(review) {
  * Fetch weather details from Yahoo Weather API
  * @param loc Location to get the weather for
  */
- 
+/* 
 function weatherForecast(loc, cb) {
   const query = new YQL('select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + loc + '")');
 
@@ -728,6 +772,7 @@ function weatherForecast(loc, cb) {
 /**
  * Find forecast for a specified date (if available)
  */
+ /*
 
 function forecastForADate(forecastDate, forecasts) {
   return forecasts.find((item) => {
@@ -737,6 +782,7 @@ function forecastForADate(forecastDate, forecasts) {
 }
 
 /** Prompts to get the current weather conditions */
+/*
 bot.dialog('Weather.GetForecast', [
   function(session, args, next) {
 	session.send('Welcome to the Weather finder! We are analyzing your message: \'%s\'', session.message.text);
@@ -762,6 +808,7 @@ bot.dialog('Weather.GetForecast', [
     matches: 'Weather.GetForecast'
  });
 */
+/*
 ]).triggerAction({
     matches: 'Weather.GetForecast',
     onInterrupted: function (session) {
@@ -772,6 +819,7 @@ bot.dialog('Weather.GetForecast', [
 
 /** Fetch the weather forecast for a city */
 
+/*
 bot.dialog('GetForecast', [
   function(session, args, next) {
     const location = builder.EntityRecognizer.findEntity(args.entities, 'builtin.geography.city');
@@ -820,3 +868,4 @@ bot.dialog('GetForecast', [
     //session.send('Please provide a GetForecast');
     //}
 });
+*/
