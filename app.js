@@ -102,7 +102,7 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
 });*/
 
 //bot.dialog('*',(intents,intents1)); 
-bot.dialog('/',intents1); 
+bot.dialog('*',intents1); 
 
 
 //bot1.dialog('/',intents1); 
