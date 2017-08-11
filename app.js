@@ -101,6 +101,7 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
     matches: 'greeting'
 });*/
 
+//bot.dialog('/',intents); 
 bot1.dialog('/',intents1); 
 
 intents1.matches('whatIsWeather',[ function(session,args)
