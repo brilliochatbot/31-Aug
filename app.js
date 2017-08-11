@@ -69,9 +69,9 @@ bot.recognizer(recognizer,recognizer_api);
 //bot1.recognizer(recognizer_api);//api.ai
 
 
-var intents = new builder.IntentDialog({recognizers:[recognizer]})
+var intents = new builder.IntentDialog({recognizers:[recognizer,recognizer_api]})
 
-var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
+//var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
 
 /*.matches('None',(session, args)=>{
  session.send('Hi this is the none intent you said: \'%s\'.',session.message.text)
@@ -106,7 +106,7 @@ bot.dialog('/',intents,intents1);
 
 //bot1.dialog('/',intents1); 
 
-intents1.matches('whatIsWeather',[ function(session,args)
+intents.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
 { 
