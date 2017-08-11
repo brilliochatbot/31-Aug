@@ -105,7 +105,7 @@ bot.dialog('/',intents,intents1);
 
 
 //bot1.dialog('/',intents1); 
-/*
+
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
@@ -132,7 +132,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  session.send("It's " + temp + " degrees celsius in " + city_name); }); 
  } ]);
 
-*/
+
 
 
 bot.dialog('greeting', [
@@ -163,6 +163,8 @@ bot.dialog('greeting', [
   //bot1.recognizer(recognizer_api);//api.ai
   
   //bot1.dialog('/',intents1); 
+/*
+
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
@@ -188,7 +190,8 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  temp = body.current.temp_c; 
  session.send("It's " + temp + " degrees celsius in " + city_name); }); 
  } ]);
-  
+ 
+*/ 
   //99999999999999999999999999999999999999999999999999999999
   
   }
