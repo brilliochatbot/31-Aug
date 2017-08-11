@@ -66,7 +66,7 @@ var intents = new builder.IntentDialog({recognizers:[recognizer]})
 
 //APi.ai88888888888
 var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
-//bot.dialog('/',intents1); 
+bot.dialog('/',intents1); 
 //block end api.ai8888888888
 
 /*.matches('None',(session, args)=>{
