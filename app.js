@@ -1,6 +1,8 @@
 var restify = require('restify');
 var YQL     = require('yql');
 var builder = require('botbuilder');
+var apiairecognizer = require('api-ai-recognizer'); 
+var request = require('request');
 
 var count1;
 // Setup Restify Server
@@ -17,6 +19,7 @@ var connector = new builder.ChatConnector({
     //appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
+var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');//added for api.ai 
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
@@ -109,6 +112,27 @@ bot.dialog('greeting', [
 	builder.Prompts.text(session, 'please enter valid input');
 	}
    count1=1; 
+   
+ //added for api.ai block 
+   var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+bot.dialog('/',intents1); 
+
+intents1.matches('smalltalk.greetings.hello',function(session, args)
+{ var fulfillment = builder.EntityRecognizer.findEntity(args.entities, 'fulfillment'); 
+if (fulfillment)
+	{ 
+	var speech = fulfillment.entity; 
+	session.send(speech); 
+	}else
+	{ session.send('Sorry...not sure how to respond to that'); 
+	} 
+});
+  
+ //added for api.ai block end
+
+ 
+  
+   
   //session.send('Let me know your car number');
   }
   ]).triggerAction({
