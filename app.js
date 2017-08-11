@@ -19,7 +19,17 @@ var connector = new builder.ChatConnector({
     //appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
-var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');//added for api.ai 
+
+//888888888888888888888888
+//var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');//added for api.ai 
+
+var bot1 = new builder.UniversalBot(connector); 
+var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
+var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+bot1.dialog('/',intents1); 
+
+//8888888888888888888888888888
+
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
@@ -65,8 +75,8 @@ bot.recognizer(recognizer);
 var intents = new builder.IntentDialog({recognizers:[recognizer]})
 
 //APi.ai88888888888
-var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
-bot.dialog('/',intents1); 
+//var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+//bot.dialog('/',intents1); 
 //block end api.ai8888888888
 
 /*.matches('None',(session, args)=>{
