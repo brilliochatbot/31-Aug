@@ -23,10 +23,10 @@ var connector = new builder.ChatConnector({
 //888888888888888888888888
 //var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');//added for api.ai 
 
-var bot1 = new builder.UniversalBot(connector); 
-var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
-var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
-bot1.dialog('/',intents1); 
+//var bot1 = new builder.UniversalBot(connector); 
+//var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
+//var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+//bot1.dialog('/',intents1); 
 
 //8888888888888888888888888888
 
@@ -59,7 +59,11 @@ server.post('/api/messages', connector.listen());
     //session.send("You said: %s", session.message.text);
 	//}
 });*/
-
+//8888888888888888888888888888888888888888
+var bot1 = new builder.UniversalBot(connector); 
+var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
+var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+bot1.dialog('/',intents1); 
 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
@@ -86,7 +90,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  temp = body.current.temp_c; 
  session.send("It's " + temp + " degrees celsius in " + city_name); }); 
  } ]);
-
+//888888888888888888888
 
 
 
