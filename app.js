@@ -60,6 +60,37 @@ server.post('/api/messages', connector.listen());
 	//}
 });*/
 
+
+intents1.matches('whatIsWeather',[ function(session,args)
+{ var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
+if (city11)
+{ 
+var city_name = city11.entity; 
+var url = 'http://api.apixu.com/v1/current.json?key=a3245afef9f940f3b68111100171108&q=' + city_name; 
+request(url,function(error,response,body)
+{ 
+body = JSON.parse(body);
+
+temp = body.current.temp_c; 
+session.send("It's " + temp + " degrees celsius in " + city_name); 
+}); 
+}else
+{ builder.Prompts.text(session, 'Which city do you want the weather for?');
+ } }, function(session,results)
+ { 
+ var city_name = results.response; 
+ var url = 'http://api.apixu.com/v1/current.json?key=a3245afef9f940f3b68111100171108&q=' + city_name; 
+ request(url,function(error,response,body)
+ { 
+ body = JSON.parse(body);
+ temp = body.current.temp_c; 
+ session.send("It's " + temp + " degrees celsius in " + city_name); }); 
+ } ]);
+
+
+
+
+
 var bot = new builder.UniversalBot(connector, function (session) {
 		session.send('Sorry, I did not understand \'%s\'. Please check your input.', session.message.text);
 });
@@ -132,8 +163,10 @@ bot.dialog('greeting', [
  //added for api.ai block 
    /*var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
 bot.dialog('/',intents1); */
+//99999999999999999999999999
 
-intents1.matches('smalltalk.greetings.hello',function(session, args)
+
+/*intents1.matches('smalltalk.greetings.hello',function(session, args)
 { var fulfillment = builder.EntityRecognizer.findEntity(args.entities, 'fulfillment'); 
 if (fulfillment)
 	{ 
@@ -142,7 +175,8 @@ if (fulfillment)
 	}else
 	{ session.send('Sorry...not sure how to respond to that'); 
 	} 
-});
+});*/
+//999999999999999
   
  //added for api.ai block end
 
