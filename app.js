@@ -101,9 +101,9 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
     matches: 'greeting'
 });*/
 
-bot.dialog('/',intents); 
+//bot.dialog('/',intents1); 
 
-intents.matches('whatIsWeather',[ function(session,args)
+intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
 { 
