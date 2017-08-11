@@ -65,7 +65,7 @@ var recognizer = new builder.LuisRecognizer(LUIS_MODEL_URL);
 var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389'); 
 
 
-bot.recognizer(recognizer);
+//bot.recognizer(recognizer);
 bot.recognizer(recognizer_api);//api.ai
 
 
