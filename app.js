@@ -66,7 +66,7 @@ var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
 
 
 bot.recognizer(recognizer);
-bot1.recognizer(recognizer_api);//api.ai
+//bot1.recognizer(recognizer_api);//api.ai
 
 
 var intents = new builder.IntentDialog({recognizers:[recognizer]})
