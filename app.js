@@ -902,3 +902,4 @@ bot.dialog('GetForecast', [
     //session.send('Please provide a GetForecast');
     //}
 });
+*/
