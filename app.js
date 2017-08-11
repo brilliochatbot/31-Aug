@@ -65,7 +65,7 @@ var recognizer = new builder.LuisRecognizer(LUIS_MODEL_URL);
 var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389'); 
 
 
-bot.recognizer(recognizer);
+bot.recognizer(recognizer,recognizer_api);
 //bot1.recognizer(recognizer_api);//api.ai
 
 
@@ -101,10 +101,11 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
     matches: 'greeting'
 });*/
 
-bot.dialog('/',intents); 
+bot.dialog('/',intents,intents1); 
 
-/*
+
 //bot1.dialog('/',intents1); 
+/*
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
@@ -158,10 +159,10 @@ bot.dialog('greeting', [
   //session.send('Let me know your car number');
   
   //99999999999999999999999999999999999999999999999999999
-  var bot1 = new builder.UniversalBot(connector);
-  bot1.recognizer(recognizer_api);//api.ai
+  //var bot1 = new builder.UniversalBot(connector);
+  //bot1.recognizer(recognizer_api);//api.ai
   
-  bot1.dialog('/',intents1); 
+  //bot1.dialog('/',intents1); 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
