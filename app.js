@@ -60,6 +60,7 @@ server.post('/api/messages', connector.listen());
 	//}
 });*/
 //8888888888888888888888888888888888888888
+/*
 var bot1 = new builder.UniversalBot(connector); 
 var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
 var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
@@ -92,7 +93,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  } ]);
 //888888888888888888888
 
-
+*/
 
 
 var bot = new builder.UniversalBot(connector, function (session) {
