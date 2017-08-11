@@ -63,6 +63,12 @@ var LUIS_MODEL_URL='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/bd
 var recognizer = new builder.LuisRecognizer(LUIS_MODEL_URL);
 bot.recognizer(recognizer);
 var intents = new builder.IntentDialog({recognizers:[recognizer]})
+
+//APi.ai88888888888
+var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+//bot.dialog('/',intents1); 
+//block end api.ai8888888888
+
 /*.matches('None',(session, args)=>{
  session.send('Hi this is the none intent you said: \'%s\'.',session.message.text)
 })
@@ -114,8 +120,8 @@ bot.dialog('greeting', [
    count1=1; 
    
  //added for api.ai block 
-   var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
-bot.dialog('/',intents1); 
+   /*var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); 
+bot.dialog('/',intents1); */
 
 intents1.matches('smalltalk.greetings.hello',function(session, args)
 { var fulfillment = builder.EntityRecognizer.findEntity(args.entities, 'fulfillment'); 
