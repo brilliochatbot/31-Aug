@@ -789,6 +789,8 @@ function reviewAsAttachment(review) {
  * @param loc Location to get the weather for
  */
  
+ /*-----------------------------------------weather
+ 
 function weatherForecast(loc, cb) {
   const query = new YQL('select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + loc + '")');
 
@@ -803,6 +805,7 @@ function weatherForecast(loc, cb) {
  * Find forecast for a specified date (if available)
  */
 
+ /*
 function forecastForADate(forecastDate, forecasts) {
   return forecasts.find((item) => {
     var date = moment(item.date, 'DD MMM YYYY');
@@ -810,7 +813,9 @@ function forecastForADate(forecastDate, forecasts) {
   });
 }
 
+
 /** Prompts to get the current weather conditions */
+/*
 bot.dialog('Weather.GetForecast', [
   function(session, args, next) {
 	session.send('Welcome to the Weather finder! We are analyzing your message: \'%s\'', session.message.text);
@@ -836,6 +841,8 @@ bot.dialog('Weather.GetForecast', [
     matches: 'Weather.GetForecast'
  });
 */
+
+/*
 ]).triggerAction({
     matches: 'Weather.GetForecast',
     onInterrupted: function (session) {
@@ -846,6 +853,7 @@ bot.dialog('Weather.GetForecast', [
 
 /** Fetch the weather forecast for a city */
 
+/*
 bot.dialog('GetForecast', [
   function(session, args, next) {
     const location = builder.EntityRecognizer.findEntity(args.entities, 'builtin.geography.city');
