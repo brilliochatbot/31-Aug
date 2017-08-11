@@ -101,8 +101,9 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
     matches: 'greeting'
 });*/
 
-//bot.dialog('*',(intents,intents1)); 
-bot.dialog('*',intents1); 
+bot.dialog('*',(intents,intents1)); 
+//bot.dialog('*',intents); 
+//bot.dialog('/',intents1); 
 
 
 //bot1.dialog('/',intents1); 
