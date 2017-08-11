@@ -69,9 +69,9 @@ bot.recognizer(recognizer,recognizer_api);
 //bot1.recognizer(recognizer_api);//api.ai
 
 
-var intents = new builder.IntentDialog({recognizers:[recognizer,recognizer_api]})
+var intents = new builder.IntentDialog({recognizers:[recognizer]})
 
-//var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
+var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
 
 /*.matches('None',(session, args)=>{
  session.send('Hi this is the none intent you said: \'%s\'.',session.message.text)
@@ -102,6 +102,7 @@ var intents = new builder.IntentDialog({recognizers:[recognizer,recognizer_api]}
 });*/
 
 bot.dialog('/',intents,intents1); 
+//bot.dialog('/',intents); 
 
 
 //bot1.dialog('/',intents1); 
