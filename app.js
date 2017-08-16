@@ -54,7 +54,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
 		session.send('Sorry, I did not understand \'%s\'. Please check your input.', session.message.text);
 });
 
-//var bot1 = new builder.UniversalBot(connector);
+var bot1 = new builder.UniversalBot(connector);
 
 //var LUIS_MODEL_URL='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/8469e743-3cf0-4c53-9b2c-67e13b9326b2?subscription-key=2a4eb0bdf86042eb9138c85fd724dd6c&timezoneOffset=0&verbose=true&q='
 
@@ -67,8 +67,8 @@ var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
 
 //bot.recognizer(recognizer,recognizer_api);
 //bot.recognizer(recognizer_api,recognizer);
-bot.recognizer(recognizer_api);
-//bot1.recognizer(recognizer_api);//api.ai
+//bot.recognizer(recognizer_api);
+bot1.recognizer(recognizer_api);//api.ai
 
 
 //var intents = new builder.IntentDialog({recognizers:[recognizer]})
@@ -105,10 +105,10 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
 
 //bot.dialog('*',(intents,intents1)); 
 //bot.dialog('*',intents); 
-bot.dialog('*',intents1); 
+//bot.dialog('/',intents1); 
 
 
-//bot1.dialog('/',intents1); 
+bot1.dialog('/',intents1); 
 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
