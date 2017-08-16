@@ -120,8 +120,8 @@ bot.dialog('*',intents);
 //bot.dialog('/',intents1); 
 
 
-//bot1.dialog('/',intents1); 
-/*
+bot1.dialog('/',intents1); 
+
 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
@@ -149,7 +149,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  session.send("It's " + temp + " degrees celsius in " + city_name); }); 
  } ]);
 
-*/
+
 
 
 bot.dialog('greeting', [
