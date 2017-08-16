@@ -67,6 +67,7 @@ var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
 
 //bot.recognizer(recognizer,recognizer_api);
 bot.recognizer(recognizer_api,recognizer);
+//bot.recognizer(recognizer_api);
 //bot1.recognizer(recognizer_api);//api.ai
 
 
@@ -102,8 +103,8 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
     matches: 'greeting'
 });*/
 
-//bot.dialog('*',(intents,intents1)); 
-bot.dialog('*',intents); 
+bot.dialog('*',(intents,intents1)); 
+//bot.dialog('*',intents); 
 //bot.dialog('/',intents1); 
 
 
@@ -262,36 +263,6 @@ bot.dialog('None', [
     session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
-//api.ai block	------------------------------------------------------------
-bot.dialog('/',intents1); 
-
-intents1.matches('whatIsWeather',[ function(session,args)
-{ var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
-if (city11)
-{ 
-var city_name = city11.entity; 
-var url = 'http://api.apixu.com/v1/current.json?key=a3245afef9f940f3b68111100171108&q=' + city_name; 
-request(url,function(error,response,body)
-{ 
-body = JSON.parse(body);
-
-temp = body.current.temp_c; 
-session.send("It's " + temp + " degrees celsius in " + city_name); 
-}); 
-}else
-{ builder.Prompts.text(session, 'Which city do you want the weather for?');
- } }, function(session,results)
- { 
- var city_name = results.response; 
- var url = 'http://api.apixu.com/v1/current.json?key=a3245afef9f940f3b68111100171108&q=' + city_name; 
- request(url,function(error,response,body)
- { 
- body = JSON.parse(body);
- temp = body.current.temp_c; 
- session.send("It's " + temp + " degrees celsius in " + city_name); }); 
- } ]);
-	
-//api.ai block end -------------------------------------------------
 	
 	
 	}
