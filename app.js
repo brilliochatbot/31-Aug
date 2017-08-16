@@ -277,7 +277,7 @@ bot.dialog('None', [
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
-//bot1.dialog('/',intents1); 
+bot1.dialog('/',intents1); 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
