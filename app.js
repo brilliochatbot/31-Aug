@@ -120,7 +120,7 @@ var intents1 = new builder1.IntentDialog({ recognizers: [recognizer_api] }); //a
 //bot.dialog('/',intents1); 
 
 
-bot1.dialog('/',intents1); 
+//bot1.dialog('/',intents1); 
 
 
 intents1.matches('whatIsWeather',[ function(session,args)
