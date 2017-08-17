@@ -83,7 +83,7 @@ bot.recognizer(recognizer);
 bot1.recognizer(recognizer_api);//api.ai
 
 
-var intents = new builder.IntentDialog({recognizers:[recognizer]});
+//var intents = new builder.IntentDialog({recognizers:[recognizer]});
 
 var intents1 = new builder1.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
 
