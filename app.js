@@ -80,12 +80,12 @@ var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
 bot.recognizer(recognizer);
 //bot.recognizer(recognizer_api,recognizer);
 //bot.recognizer(recognizer_api);
-bot.recognizer(recognizer_api);//api.ai
+//bot.recognizer(recognizer_api);//api.ai
 
 
 var intents = new builder.IntentDialog({recognizers:[recognizer]});
 
-var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
+//var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
 
 /*.matches('None',(session, args)=>{
  session.send('Hi this is the none intent you said: \'%s\'.',session.message.text)
@@ -116,12 +116,13 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
 });*/
 
 //bot.dialog('/',(intents,intents1)); 
-bot.dialog('/',intents); 
+bot.dialog('*',intents); 
 //bot.dialog('/',intents1); 
 
 
 //bot1.dialog('/',intents1); 
 
+/*
 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
@@ -149,7 +150,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  session.send("It's " + temp + " degrees celsius in " + city_name); }); 
  } ]);
 
-
+*/
 
 
 bot.dialog('greeting', [
@@ -277,7 +278,8 @@ bot.dialog('None', [
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
-//bot1.dialog('/',intents1); 
+/*
+	//bot1.dialog('/',intents1); 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
@@ -303,7 +305,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
  temp = body.current.temp_c; 
  session.send("It's " + temp + " degrees celsius in " + city_name); }); 
  } ]);
-
+*/
 	
 	//------------------------------------
 	
