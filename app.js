@@ -1,7 +1,7 @@
 var restify = require('restify');
 var YQL     = require('yql');
 var builder = require('botbuilder');
-var builder1 = require('botbuilder');
+//var builder1 = require('botbuilder');
 
 
 
@@ -23,17 +23,17 @@ var connector = new builder.ChatConnector({
     //appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
-var connector1 = new builder1.ChatConnector({
+/*var connector1 = new builder1.ChatConnector({
     //appId: process.env.MICROSOFT_APP_ID,
 	appId: "37f09aa3-c891-4e47-a024-eb91207d54cf",
 	appPassword: "BziRNqA4v218QhYmqkEZTKF"
     //appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
+});*/
 
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
-server.post('/api/messages', connector1.listen());
+//server.post('/api/messages', connector1.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 
@@ -66,7 +66,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
 		session.send('Sorry, I did not understand \'%s\'. Please check your input.', session.message.text);
 });
 
-var bot1 = new builder1.UniversalBot(connector1);
+//var bot1 = new builder1.UniversalBot(connector1);
 
 //var LUIS_MODEL_URL='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/8469e743-3cf0-4c53-9b2c-67e13b9326b2?subscription-key=2a4eb0bdf86042eb9138c85fd724dd6c&timezoneOffset=0&verbose=true&q='
 
@@ -80,12 +80,12 @@ var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389');
 bot.recognizer(recognizer);
 //bot.recognizer(recognizer_api,recognizer);
 //bot.recognizer(recognizer_api);
-bot1.recognizer(recognizer_api);//api.ai
+bot.recognizer(recognizer_api);//api.ai
 
 
-//var intents = new builder.IntentDialog({recognizers:[recognizer]});
+var intents = new builder.IntentDialog({recognizers:[recognizer]});
 
-var intents1 = new builder1.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
+var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
 
 /*.matches('None',(session, args)=>{
  session.send('Hi this is the none intent you said: \'%s\'.',session.message.text)
@@ -115,7 +115,7 @@ var intents1 = new builder1.IntentDialog({ recognizers: [recognizer_api] }); //a
     matches: 'greeting'
 });*/
 
-//bot.dialog('*',(intents,intents1)); 
+bot.dialog('*',(intents,intents1)); 
 //bot.dialog('*',intents); 
 //bot.dialog('/',intents1); 
 
@@ -277,7 +277,7 @@ bot.dialog('None', [
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
-bot1.dialog('/',intents1); 
+//bot1.dialog('/',intents1); 
 intents1.matches('whatIsWeather',[ function(session,args)
 { var city11 = builder.EntityRecognizer.findEntity(args.entities,'city'); 
 if (city11)
