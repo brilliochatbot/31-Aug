@@ -23,11 +23,47 @@ var connector = new builder.ChatConnector({
     //appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
+//Message EndPoint: https://immense-wildwood-68928.herokuapp.com/api/messages
+//on BotFramework
 
+/*var connector1 = new builder1.ChatConnector({
+    //appId: process.env.MICROSOFT_APP_ID,
+	appId: "37f09aa3-c891-4e47-a024-eb91207d54cf",
+	appPassword: "BziRNqA4v218QhYmqkEZTKF"
+    //appPassword: process.env.MICROSOFT_APP_PASSWORD
+});*/
 
+// Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
+//server.post('/api/messages', connector1.listen());
 
+// Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
+
+/*var bot = new builder.UniversalBot(connector, function (session) 
+
+{
+	if (session.message.text.includes("hella"))
+	{
+	session.send('Brillio product \n\n Brillio creates innovative digital experiences for your customers. We use advanced digital engineering to ensure these experiences run smoothly.\n\n And we enable customer-facing and operational insights with the power of big data analytics.');
+	}
+	else if (session.message.text.includes("how r u"))
+	{
+	session.send("I am doing good\n\nHow r u");
+	}
+	else if (session.message.text.includes("hi"))
+	{
+	session.send('Hi \n\n How can i help you');
+	}
+	else if (session.message.text.includes("happy"))
+	{
+	session.send('Good to see you happy');
+	}
+	//else
+	//{
+    //session.send("You said: %s", session.message.text);
+	//}
+});*/
 
 var bot = new builder.UniversalBot(connector, function (session) {
 		session.send('Sorry, I did not understand \'%s\'. Please check your input.', session.message.text);
@@ -44,14 +80,14 @@ var recognizer = new builder.LuisRecognizer(LUIS_MODEL_URL);
 var recognizer_api = new apiairecognizer('5672dcdc85c547bfa08116c8926dd389'); 
 
 
-//bot.recognizer(recognizer);
+bot.recognizer(recognizer);
 
-bot.recognizer(recognizer_api,recognizer);
+//bot.recognizer(recognizer_api,recognizer);
 //bot.recognizer(recognizer_api);
 //bot1.recognizer(recognizer_api);//api.ai
 
 
-//var intents = new builder.IntentDialog({recognizers:[recognizer]});
+var intents = new builder.IntentDialog({recognizers:[recognizer]});
 
 var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //api.ai
 
@@ -84,8 +120,8 @@ var intents1 = new builder.IntentDialog({ recognizers: [recognizer_api] }); //ap
 });*/
 
 //bot.dialog('/',(intents,intents1)); 
-//bot.dialog('*',intents); 
-bot.dialog('*',intents1); 
+bot.dialog('*',intents); 
+//bot.dialog('/',intents1); 
 
 
 //bot1.dialog('/',intents1); 
