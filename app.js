@@ -278,7 +278,7 @@ bot.dialog('None', [
 	}
 	
 	else{
-    session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service / Weather ', session.message.text);
+    session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
@@ -398,7 +398,7 @@ bot.dialog('carregistered', [
 	  //session.send('model %s', args[0])
 	  //session.send('model %s', modelEntity)
 	  //builder.Prompts.text(session,modelEntity);
-	builder.Prompts.text(session, 'please enter valid car number');
+	builder.Prompts.text(session, 'Please enter a valid car number of format XXXX YY where X is number, Y is any alphabet.');
 	}
 	count1=3;
   
@@ -421,7 +421,7 @@ bot.dialog('carregistered', [
   //if (modelEntity === 'Lexus' ||  modelEntity === 'lexus')
 	{
 		//session.send('model %s', results.response)
-		builder.Prompts.text(session, "That's great! \n\nWhen are you planning to go for this service?");
+		builder.Prompts.text(session, "When are you planning to go for this service?");
 	}
 	else
 	{
@@ -429,7 +429,7 @@ bot.dialog('carregistered', [
 	  //session.send('model %s', args[0])
 	  //session.send('model %s', args.intent.entities)
 	  //builder.Prompts.text(session,modelEntity);
-	builder.Prompts.text(session, 'please enter valid input');
+	builder.Prompts.text(session, 'Please enter a valid service input, either Routine Service or Auxiliary service.');
 	}
   
    //session.send('Let me know your car number');
@@ -449,26 +449,18 @@ bot.dialog('carregistered', [
   bot.dialog('date', [
   function(session,args,next){
   
-  //*var typeofserviceEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'typeofservice');
+  var dateEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'date');
+  if(dateEntity)
   
-  //*if(typeofserviceEntity)
-  
-  //if (modelEntity === 'Lexus' ||  modelEntity === 'lexus')
-	
+ 	{
 		builder.Prompts.text(session, "That's great. Let me know which time do you prefer for the service?\n\n9 am / 11 am / 3 pm/ 5 pm");
-		
-		
-	
-	/*else
+	}
+	else
 	{
-	  //user
-	  //session.send('model %s', args[0])
-	  //session.send('model %s', modelEntity)
-	  //builder.Prompts.text(session,modelEntity);
-	builder.Prompts.text(session, 'please enter valid service type Routine/Auxiliary Service');
-	}*/
-  
-   //session.send('Let me know your car number');
+	builder.Prompts.text(session, 'The date you entered is fully occupied. Please enter a new date.');
+	}
+	
+	
    count1=6;
   }
   ]).triggerAction({
@@ -480,6 +472,7 @@ bot.dialog('carregistered', [
   
   bot.dialog('time', [
   function(session,args,next){
+  
   //session.send('model %s', results.response)
 		builder.Prompts.text(session, "Generally people go for oil change, battery check-up, general servicing during a routine service. What are your preferences?");
 		count1=7;
@@ -509,7 +502,8 @@ bot.dialog('carregistered', [
 	  //session.send('model %s', args[0])
 	  //session.send('model %s', args.intent.entities)
 	  //builder.Prompts.text(session,modelEntity);
-	builder.Prompts.text(session, 'please enter valid input');
+	builder.Prompts.text(session, 'Sorry, Please enter a proper routine service as follows:\n\noil change, battery check-up, general servicing, all of them');
+							
 	}
   count1=8;
    //session.send('Let me know your car number');
@@ -609,7 +603,7 @@ bot.dialog('carregistered', [
 	  //session.send('model %s', args[0])
 	  //session.send('model %s', args.intent.entities)
 	  //builder.Prompts.text(session,modelEntity);
-	builder.Prompts.text(session, 'please enter valid input');
+	builder.Prompts.text(session, 'Please enter a valid service input, either Car Detailing or Buy Accessories.');
 	}
   count1=11;
    //session.send('Let me know your car number');
