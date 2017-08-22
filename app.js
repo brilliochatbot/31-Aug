@@ -166,6 +166,7 @@ bot.dialog('greeting', [
   
   //if (modelEntity === 'Lexus' ||  modelEntity === 'lexus')
 	{
+	createThumbnailCard(session);
 	//session.send('model %s', args[0])
 	builder.Prompts.text(session, 'Hey Brillio  \n\n\nI am your smart auto assistant powered by Hella. Help me with your car details so that I can do a lot better for you. Which Lexus auto do you own?');
 	}
@@ -655,6 +656,21 @@ bot.dialog('carregistered', [
 	//onInterrupted: function (session) {
     //    session.send('Please provide a valid car number');
   });
+ 
+ 
+ function createThumbnailCard(session) {
+    return new builder.ThumbnailCard(session)
+        .title('BotFramework Thumbnail Card')
+        .subtitle('Your bots — wherever your users are talking')
+        .text('Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.')
+        .images([
+            builder.CardImage.create(session, 'https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg')
+        ])
+        .buttons([
+            builder.CardAction.openUrl(session, 'https://docs.microsoft.com/bot-framework/', 'Get Started')
+        ]);
+}
+
  
  
  /*
