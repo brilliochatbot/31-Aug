@@ -2,17 +2,34 @@ var restify = require('restify');
 var YQL     = require('yql');
 var builder = require('botbuilder');
 var builder1 = require('botbuilder');
-
+var express = require('express');
+var app = express();
+var querystring = require('querystring');
+var request = require('request');
 
 
 var apiairecognizer = require('api-ai-recognizer'); 
 var request = require('request');
+
+var form = {
+    username: 'usr',
+    password: 'pwd',
+    opaque: 'opaque',
+    logintype: '1'
+};
+
+var formData = querystring.stringify(form);
+var contentLength = formData.length;
 
 var count1;
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
    console.log('%s listening to %s', server.name, server.url); 
+});
+
+app.listen(4000 , function(){
+console.log("port 4000 is running");
 });
 
 // Create chat connector for communicating with the Bot Framework Service
@@ -26,17 +43,18 @@ var connector = new builder.ChatConnector({
 //Message EndPoint: https://immense-wildwood-68928.herokuapp.com/api/messages
 //on BotFramework
 
-var connector1 = new builder1.ChatConnector({
+//var connector1 = new builder1.ChatConnector({
     //appId: process.env.MICROSOFT_APP_ID,
-	appId: "9f598da8-9569-4809-88cf-de05cd8d2500",
-	appPassword: "ckTkiAw55q43UnL2oirMhEA"
+	//appId: "9f598da8-9569-4809-88cf-de05cd8d2500",
+	//appPassword: "ckTkiAw55q43UnL2oirMhEA"
     //appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
+//});
+
 
 // Listen for messages from users 
 server.post('/api/messages', connector.listen());
 
-server.post('/api/messages', connector1.listen());
+//server.post('/api/messages', connector1.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 
@@ -69,7 +87,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
 		session.send('Sorry, I did not understand \'%s\'. Please check your input.', session.message.text);
 });
 
-var bot1 = new builder1.UniversalBot(connector1);
+//var bot1 = new builder1.UniversalBot(connector1);
 
 //var LUIS_MODEL_URL='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/8469e743-3cf0-4c53-9b2c-67e13b9326b2?subscription-key=2a4eb0bdf86042eb9138c85fd724dd6c&timezoneOffset=0&verbose=true&q='
 
@@ -84,7 +102,7 @@ bot.recognizer(recognizer);
 
 //bot.recognizer(recognizer_api,recognizer);
 //bot.recognizer(recognizer_api);
-bot1.recognizer(recognizer_api);//api.ai
+//bot1.recognizer(recognizer_api);//api.ai
 
 
 var intents = new builder.IntentDialog({recognizers:[recognizer]});
@@ -124,7 +142,7 @@ bot.dialog('*',intents);
 //bot.dialog('/',intents); 
 
 
-bot1.dialog('/',intents1); 
+//bot1.dialog('/',intents1); 
 
 
 
@@ -279,7 +297,27 @@ bot.dialog('None', [
 	}
 	
 	else{
-    session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
+	  request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	
+	console.log(temp);
+	console.log(tempp);
+  });
+   // session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
