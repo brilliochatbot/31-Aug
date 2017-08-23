@@ -178,6 +178,29 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
 bot.dialog('greeting', [
   function(session,args,next){
   
+request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	//sleep.sleep(4);
+	session.send(temp);
+	
+  }); 
+ 
+ 
+ 
   var greetingListEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'greetingList');
   
   if(greetingListEntity)
