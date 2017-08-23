@@ -259,7 +259,7 @@ bot.dialog('None', [
 	body = JSON.parse(body);
 	temp = body.result.fulfillment.speech;
 	tempp = body.result.metadata.intentName;
-	sleep.sleep(4);
+	//sleep.sleep(4);
 	session.send(temp);
 	
   });
