@@ -188,7 +188,7 @@ request({
 	  //'Content-Type': 'application/x-www-form-urlencoded'
     },
     uri: 'https://api.api.ai/v1/query?v=20150910',
-    body: '{"query": userTxt,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    body: '{"query": '+userTxt+',"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
     method: 'POST'
   }, function (err, res, body) {
     //it works!
