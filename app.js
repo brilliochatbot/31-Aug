@@ -197,7 +197,7 @@ request({
 	tempp = body.result.metadata.intentName;
 	//sleep.sleep(4);
 	session.send(temp);
-	console.log(session.message.text);
+	//console.log(session.message.text);
   }); 
  
  
