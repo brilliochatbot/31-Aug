@@ -314,7 +314,7 @@ bot.dialog('None', [
 	body = JSON.parse(body);
 	temp = body.result.fulfillment.speech;
 	tempp = body.result.metadata.intentName;
-	
+	session.send(temp);
 	console.log(temp);
 	console.log(tempp);
   });
