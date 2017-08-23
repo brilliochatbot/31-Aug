@@ -245,54 +245,229 @@ bot.dialog('None', [
   function(session,args,next){
   if(count1===1)
 	{
-	//apiCall(session.message.text);
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	console.log(temp);
+	console.log(tempp);
+  });
+	 
 	 session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know your car number ', session.message.text);
 	//session.send('Let me know your car number');
 	}
 	else if(count1===2)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	console.log(temp);
+	console.log(tempp);
+  });
+	
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know your car number ', session.message.text);
 	//session.send('Let me know your car number')
 	//session.send('How can I help you today?')
 	}
 	else if(count1===3)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	console.log(temp);
+	console.log(tempp);
+  });
+	
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nHow can I help you today?', session.message.text);
 	//session.send('How can I help you today?')
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service')
 	}
 	else if(count1===4)
 	{
+	
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+});
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know what kind of service you like to go with Routine Service / Auxiliary service ', session.message.text);
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service')
 	//session.send('When are you planning to go for this service?')
 	}
 	else if(count1===5)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	});
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nWhen are you planning to go for this service?', session.message.text);
 	//session.send('When are you planning to go for this service?');
 	//session.send('Let me know which time do you prefer for the service?\n\n9 am / 11 am / 3 pm/ 5 pm')
 	}
 	else if(count1===6)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	});
+	
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know which time do you prefer for the service?\n\n9 am / 11 am / 3 pm/ 5 pm', session.message.text);
 	//session.send('Let me know which time do you prefer for the service?\n\n9 am / 11 am / 3 pm/ 5 pm')
 	//session.send('Generally people go for oil change, battery check-up, general servicing during a routine service. What are your preferences?')
 	}
 	else if(count1===7)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	});
+	
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nGenerally people go for oil change, battery check-up, general servicing during a routine service. What are your preferences?', session.message.text);
 	//session.send('Generally people go for oil change, battery check-up, general servicing during a routine service. What are your preferences?')
 	//session.send('how do you prefer to move around?\n\nLoaner Car/ Shuttle service')
 	}
 	else if(count1===8)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	});
+	
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nhow do you prefer to move around?\n\nLoaner Car/ Shuttle service', session.message.text);
 	//session.send('how do you prefer to move around?\n\nLoaner Car/ Shuttle service')
 	//session.send('Your loaner car would be available by 9:05 am and needs to be returned while taking your car back./ Driver named John will pick you by 9:15 am. You can reach him at (541) 754-3010)')
 	}
 	else if(count1===11)
 	{
+	request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	});
+	
 	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know what you wish to go with\n\nCar Detailing/ Buy Accessories', session.message.text);
 	//session.send('Let me know what you wish to go with\n\nCar Detailing/ Buy Accessories')
 	}
@@ -1011,7 +1186,7 @@ request({
 	  //'Content-Type': 'application/x-www-form-urlencoded'
     },
     uri: 'https://api.api.ai/v1/query?v=20150910',
-    body: '{"query": args,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
     method: 'POST'
   }, function (err, res, body) {
     //it works!
