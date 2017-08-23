@@ -245,7 +245,29 @@ bot.dialog('None', [
   function(session,args,next){
   if(count1===1)
 	{
-	session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know your car number ', session.message.text);
+	  request({
+    headers: {
+      //'Content-Length': contentLength,
+	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
+      'Content-Type' : 'application/json; charset=utf-8'
+	  //'Content-Type': 'application/json'
+	  //'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    uri: 'https://api.api.ai/v1/query?v=20150910',
+    body: '{"query": session.message.text,"timezone": "America/New_York","lang": "en","sessionId": "1234567890"	}',
+    method: 'POST'
+  }, function (err, res, body) {
+    //it works!
+	body = JSON.parse(body);
+	temp = body.result.fulfillment.speech;
+	tempp = body.result.metadata.intentName;
+	session.send(temp);
+	console.log(temp);
+	console.log(tempp);
+  });
+	
+	
+	//session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know your car number ', session.message.text);
 	//session.send('Let me know your car number');
 	}
 	else if(count1===2)
@@ -317,7 +339,7 @@ bot.dialog('None', [
 	console.log(temp);
 	console.log(tempp);
   });
-   // session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
+    session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
