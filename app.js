@@ -245,7 +245,7 @@ bot.dialog('None', [
   function(session,args,next){
   if(count1===1)
 	{
-	apiCall(session.message.text);
+	//apiCall(session.message.text);
 	 session.send('I am not trained to answer \'%s\' \n\nPlease help me by giving questions related to Lexus car Service\n\nLet me know your car number ', session.message.text);
 	//session.send('Let me know your car number');
 	}
@@ -314,7 +314,7 @@ bot.dialog('None', [
 	body = JSON.parse(body);
 	temp = body.result.fulfillment.speech;
 	tempp = body.result.metadata.intentName;
-	session.send(temp);
+	
 	console.log(temp);
 	console.log(tempp);
   });
@@ -1023,4 +1023,4 @@ request({
 	console.log(tempp);
   });
 
-};
+}
