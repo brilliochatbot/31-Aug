@@ -445,11 +445,11 @@ bot.dialog('None', [
 	else{
 	
 	
-//var IntentText;
+var IntentText;
 
 
-//bot.recognizer({
- // recognize: function (context, done) {
+bot.recognizer({
+  recognize: function (context, done) {
   var intent = { score: 0.0 };
 
      // intent = { score: 1.0, intent: context.message.text };
@@ -458,7 +458,7 @@ bot.dialog('None', [
       //console.log('inside help')
       console.log(help1)
       //console.log('inside inside help')
-      //IntentText = help1;
+      IntentText = help1;
       //console.log('inside inside help', IntentText)
       
       intent =  { score: 1.0, intent: 'help' };
@@ -473,8 +473,8 @@ bot.dialog('None', [
 //            }
 //        }
         done(null, intent);
-   // }
-//});
+    }
+});
 
 bot.dialog('alicedialog', [
   //  session.endDialog("This bot will echo back anything you say. Say 'goodbye' to quit.");
