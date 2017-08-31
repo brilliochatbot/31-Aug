@@ -520,12 +520,12 @@ bot.dialog('carregistered', [
   bot.dialog('date', [
   function(session,args,next){
   
-  var dateEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'date');
-  if(dateEntity)
+  //var dateEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'date');
+  //if(dateEntity)
   
- 	{
+ 	//{
 		builder.Prompts.text(session, "That's great. Let me know which time do you prefer for the service?\n\n9 am / 11 am / 3 pm/ 5 pm");
-	}
+	//}
 	//else
 	//{
 	//builder.Prompts.text(session, 'The date you entered is //fully occupied. Please enter a new date.');
