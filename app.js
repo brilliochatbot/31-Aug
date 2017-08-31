@@ -111,7 +111,7 @@ var form = {
 var formData = querystring.stringify(form);
 var contentLength = formData.length;
 
-var count1;
+var count1 = 0;
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
