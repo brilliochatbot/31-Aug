@@ -179,7 +179,7 @@ bot.dialog('greeting', [
   function(session,args,next){
  
 //var userTxt= session.message.text; 
-request({
+/*request({
     headers: {
       //'Content-Length': contentLength,
 	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
@@ -198,7 +198,7 @@ request({
 	//sleep.sleep(4);
 	session.send(temp);
 	//console.log(session.message.text);
-  }); 
+  }); */
  
  
  
