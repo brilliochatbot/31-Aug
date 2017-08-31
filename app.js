@@ -7,6 +7,96 @@ var app = express();
 var querystring = require('querystring');
 var request = require('request');
 
+// ---  ansh start -- 
+const AIMLInterpreter = require('AIMLInterpreter');
+//const builder = require('botbuilder');
+
+const aimlInterpreter = new AIMLInterpreter({ name: 'Hella', age: '25' });
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/ai.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/alice.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/astrology.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/atomic.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/badanswer.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/biography.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/bot.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/bot_profile.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/client.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/client_profile.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/computers.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/continuation.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/date.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/default.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/drugs.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/emotion.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/food.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/geography.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/gossip.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/history.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/humor.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/imponderables.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/inquiry.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/interjection.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/iu.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/junktest.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/knowledge.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/literature.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/loebner10.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/money.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/movies.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp0.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp1.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp2.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp3.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp4.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp5.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/mp6.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/music.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/numbers.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/personality.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/phone.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/pickup.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/politics.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/primeminister.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/primitive-math.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/psychology.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/pyschology.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reduction.names.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reduction0.safe.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reduction1.safe.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reduction2.safe.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reduction3.safe.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reduction4.safe.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/reductions-update.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/religion.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/salutations.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/science.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/sex.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/sports.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/stack.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/stories.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/that.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/update_mccormick.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/update1.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/wallace.aiml']);
+aimlInterpreter.loadAIMLFilesIntoArray(['./aiml_alice/xfind.aiml']);
+
+const aimlPromise = function (question) {
+    return new Promise(function (resolve, reject) {
+        aimlInterpreter.findAnswerInLoadedAIMLFiles(question, function (answer, wildCardArray, input) {
+            console.log(answer,'getting answererer for this question',question)
+             return resolve(answer);
+//should also handle reject!!! this is demo code only :)
+        });
+        
+      
+ 
+
+        
+    })
+};
+
+// ---  ansh end -- 
+
 
 var apiairecognizer = require('api-ai-recognizer'); 
 var request = require('request');
@@ -265,6 +355,72 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
 });
 
 
+var IntentText;
+
+
+bot.recognizer({
+  recognize: function (context, done) {
+  var intent = { score: 0.0 };
+
+     // intent = { score: 1.0, intent: context.message.text };
+      
+      var help1 = context.message.text;
+      console.log('inside help')
+      console.log(help1)
+      console.log('inside inside help')
+      IntentText = help1;
+      console.log('inside inside help', IntentText)
+      
+      intent =  { score: 1.0, intent: 'help' };
+//        if (context.message.text) {
+//            switch (context.message.text.toLowerCase()) {
+//                case 'help':
+//                    intent = { score: 1.0, intent: 'Help' };
+//                    break;
+//                case 'goodbye':
+//                    intent = { score: 1.0, intent: 'Goodbye' };
+//                    break;
+//            }
+//        }
+        done(null, intent);
+    }
+});
+
+bot.dialog('alicedialog', [
+  //  session.endDialog("This bot will echo back anything you say. Say 'goodbye' to quit.");
+
+    function (session,args,next) {
+        console.log('test session', args,next)
+        
+        aimlPromise(IntentText).then(res => session.send(` ${res}`));
+        
+//        builder.Prompts.text(session, 'Hi! Ask me something... ');
+        /*if(IntentText.toLowerCase() == 'hi' || IntentText.toLowerCase() == 'hello') {
+            session.send('Hi! Ask me something... ');
+        } else {
+            aimlPromise(IntentText).then(res => session.send(` ${res}`));
+        }*/
+    },
+    
+  function (session, results) {
+        console.log('first')
+        console.log(results)
+        console.log(results,'session, results')
+      console.log('second')
+        
+  //      console.log(results,'session, res')
+    
+    
+}]).triggerAction({ matches: 'help' });
+
+
+
+
+
+
+
+
+
 bot.dialog('None', [
   function(session,args,next){
   /*request({
@@ -350,6 +506,7 @@ bot.dialog('None', [
 	
 	else{
 	session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
+	
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
 	//------------------------------------
