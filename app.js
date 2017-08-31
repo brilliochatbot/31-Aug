@@ -8,7 +8,7 @@ var querystring = require('querystring');
 var request = require('request');
 
 // ---  ansh start -- 
-const AIMLInterpreter = require('AIMLInterpreter');
+const AIMLInterpreter = require('aimlinterpreter');
 //const builder = require('botbuilder');
 
 const aimlInterpreter = new AIMLInterpreter({ name: 'Hella', age: '25' });
