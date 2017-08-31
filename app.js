@@ -267,7 +267,7 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
 
 bot.dialog('None', [
   function(session,args,next){
-  request({
+  /*request({
     headers: {
       //'Content-Length': contentLength,
 	  'Authorization': 'Bearer 5672dcdc85c547bfa08116c8926dd389',
@@ -286,7 +286,7 @@ bot.dialog('None', [
 	//sleep.sleep(4);
 	session.send(temp);
 	
-  });
+  });*/
   if(count1===1)
 	{
 	 
