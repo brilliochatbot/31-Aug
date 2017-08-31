@@ -355,21 +355,21 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
 });
 
 
-var IntentText;
+//var IntentText;
 
 
-bot.recognizer({
-  recognize: function (context, done) {
+//bot.recognizer({
+ // recognize: function (context, done) {
   var intent = { score: 0.0 };
 
      // intent = { score: 1.0, intent: context.message.text };
       
-      var help1 = context.message.text;
-      console.log('inside help')
+      var help1 = session.message.text;
+      //console.log('inside help')
       console.log(help1)
-      console.log('inside inside help')
-      IntentText = help1;
-      console.log('inside inside help', IntentText)
+      //console.log('inside inside help')
+      //IntentText = help1;
+      //console.log('inside inside help', IntentText)
       
       intent =  { score: 1.0, intent: 'help' };
 //        if (context.message.text) {
@@ -383,8 +383,8 @@ bot.recognizer({
 //            }
 //        }
         done(null, intent);
-    }
-});
+   // }
+//});
 
 bot.dialog('alicedialog', [
   //  session.endDialog("This bot will echo back anything you say. Say 'goodbye' to quit.");
