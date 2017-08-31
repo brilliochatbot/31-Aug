@@ -454,7 +454,7 @@ bot.recognizer({
 
      // intent = { score: 1.0, intent: context.message.text };
       
-      var help1 = session.message.text;
+      var help1 = context.message.text;
       //console.log('inside help')
       console.log(help1)
       //console.log('inside inside help')
