@@ -355,68 +355,6 @@ session.send("It's " + temp + " degrees celsius in " + city_name);
 });
 
 
-//var IntentText;
-
-
-//bot.recognizer({
- // recognize: function (context, done) {
-  var intent = { score: 0.0 };
-
-     // intent = { score: 1.0, intent: context.message.text };
-      
-      var help1 = session.message.text;
-      //console.log('inside help')
-      console.log(help1)
-      //console.log('inside inside help')
-      //IntentText = help1;
-      //console.log('inside inside help', IntentText)
-      
-      intent =  { score: 1.0, intent: 'help' };
-//        if (context.message.text) {
-//            switch (context.message.text.toLowerCase()) {
-//                case 'help':
-//                    intent = { score: 1.0, intent: 'Help' };
-//                    break;
-//                case 'goodbye':
-//                    intent = { score: 1.0, intent: 'Goodbye' };
-//                    break;
-//            }
-//        }
-        done(null, intent);
-   // }
-//});
-
-bot.dialog('alicedialog', [
-  //  session.endDialog("This bot will echo back anything you say. Say 'goodbye' to quit.");
-
-    function (session,args,next) {
-        console.log('test session', args,next)
-        
-        aimlPromise(IntentText).then(res => session.send(` ${res}`));
-        
-//        builder.Prompts.text(session, 'Hi! Ask me something... ');
-        /*if(IntentText.toLowerCase() == 'hi' || IntentText.toLowerCase() == 'hello') {
-            session.send('Hi! Ask me something... ');
-        } else {
-            aimlPromise(IntentText).then(res => session.send(` ${res}`));
-        }*/
-    },
-    
-  function (session, results) {
-        console.log('first')
-        console.log(results)
-        console.log(results,'session, results')
-      console.log('second')
-        
-  //      console.log(results,'session, res')
-    
-    
-}]).triggerAction({ matches: 'help' });
-
-
-
-
-
 
 
 
@@ -505,7 +443,73 @@ bot.dialog('None', [
 	}
 	
 	else{
-	session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
+	
+	
+//var IntentText;
+
+
+//bot.recognizer({
+ // recognize: function (context, done) {
+  var intent = { score: 0.0 };
+
+     // intent = { score: 1.0, intent: context.message.text };
+      
+      var help1 = session.message.text;
+      //console.log('inside help')
+      console.log(help1)
+      //console.log('inside inside help')
+      //IntentText = help1;
+      //console.log('inside inside help', IntentText)
+      
+      intent =  { score: 1.0, intent: 'help' };
+//        if (context.message.text) {
+//            switch (context.message.text.toLowerCase()) {
+//                case 'help':
+//                    intent = { score: 1.0, intent: 'Help' };
+//                    break;
+//                case 'goodbye':
+//                    intent = { score: 1.0, intent: 'Goodbye' };
+//                    break;
+//            }
+//        }
+        done(null, intent);
+   // }
+//});
+
+bot.dialog('alicedialog', [
+  //  session.endDialog("This bot will echo back anything you say. Say 'goodbye' to quit.");
+
+    function (session,args,next) {
+        console.log('test session', args,next)
+        
+        aimlPromise(IntentText).then(res => session.send(` ${res}`));
+        
+//        builder.Prompts.text(session, 'Hi! Ask me something... ');
+        /*if(IntentText.toLowerCase() == 'hi' || IntentText.toLowerCase() == 'hello') {
+            session.send('Hi! Ask me something... ');
+        } else {
+            aimlPromise(IntentText).then(res => session.send(` ${res}`));
+        }*/
+    },
+    
+  function (session, results) {
+        console.log('first')
+        console.log(results)
+        console.log(results,'session, results')
+      console.log('second')
+        
+  //      console.log(results,'session, res')
+    
+    
+}]).triggerAction({ matches: 'help' });
+
+
+
+
+
+	
+	
+	//session.send('Sorry, I did not understand you or maybe just lost track of our conversation. Please enter a valid input.', session.message.text);
 	
 	//session.send('Let me know what kind of service you like to go with Routine Service / Auxiliary service');
 	
